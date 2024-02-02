@@ -183,3 +183,34 @@ def check_position(SHIP_SIZE, row, column, position):
             return False
         else:
             return True
+
+# Code for going between computer and player1 turns.
+# Shows when a vessel has been hit or not
+# and uses randint to make computers guess random
+
+def player1_computer_turns(board):
+
+    if board == PLAYER1_CHOICE:
+        row, column = player1_coordinates(PLAYER1_CHOICE)
+        if board[row][column] == "-":
+            player1_computer_turns(board)
+        elif board[row][column] == "X":
+            player1_computer_turns(board)
+        elif COMPUTER_BOARD[row][column] == "@":
+            board[row][column]
+            print("Hit!\n")
+        else:
+            board[row][column] = "-"
+            print("Missed!\n")
+    else:
+        row, column = random.randint(0, 6), random.randint(0, 6)
+        if board[row][column] == "-":
+            player1_computer_turns(board)
+        elif board[row][column] == "X":
+            player1_computer_turns(board)
+        elif PLAYER1_BOARD[row][column] == "@":
+            board[row][column]
+            print("We have been hit!\n")
+        else:
+            board[row][column] = "-"
+            print("They missed!\n")
