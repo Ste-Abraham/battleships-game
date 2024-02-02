@@ -214,3 +214,14 @@ def player1_computer_turns(board):
         else:
             board[row][column] = "-"
             print("They missed!\n")
+
+# Code for keeping count of hits
+
+def succesful_hits(board):
+    
+    count = 0
+    for row in board:
+        for column in row:
+            if column == "X":
+                count += 1
+    return count
