@@ -50,4 +50,46 @@ def display_board(board):
         print("%d|%s|" % (row_number, "|".join(row)))
         row_number += 1
     print("\n")
-    
+
+# Code for placing ships - a function that will loop through the different
+# available vessels and check for any issues with overlaps
+
+def ship_location(board):
+    for ship_size in VESSEL_SIZE:
+        while True:
+            if board == COMPUTER_BOARD:
+                position, row, column = random.choice(["S", "U"]), \
+                    random.randint(0, 6), random.randint(0, 6)
+                if check_position(ship_size, row, column, position):
+                    if not overlap_monitor(board, row, column, position,
+                                         ship_size):
+                        if position == "S":
+                            for i in range(column, column + ship_size):
+                                board[row][i] = "@"
+                        elif position == "U":
+                            for i in range(row, row + ship_size):
+                                board[i][column] = "@"
+                        break
+            else:
+                ship_location = True
+                print("Place vessel that is alloted to this many space(s):"
+                + str(ship_size))
+                row, column, position = player1_coordinates(ship_location)
+                if check_position(ship_size, row, column, position):
+                    if overlap_monitor(board, row, column, position,
+                                     ship_size):
+                        print("\n")
+                        print("Vessel can not be placed here. Try again!\n")
+                    else:
+                        if position == "S":
+                            for i in range(column, column + ship_size):
+                                board[row][i] = "@"
+                        elif position == "U":
+                            for i in range(row, row + ship_size):
+                                board[i][column] = "@"
+                        else:
+                            break
+                        display_board(PLAYER1_BOARD)
+                        break
+                        print("\n"
+
