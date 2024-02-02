@@ -14,7 +14,7 @@ VESSEL_SIZE = [1, 1, 2, 2, 3, ]
 
 
 def welcome_message():
-    
+
     print("""
 
     ____        __  __  __          __    _           
