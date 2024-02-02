@@ -91,5 +91,64 @@ def ship_location(board):
                             break
                         display_board(PLAYER1_BOARD)
                         break
-                        print("\n"
+                        print("\n")
 
+# Code for inserting coordinates for both 
+# attacking computers vessels and placing your own
+
+def player1_coordinates(ship_location):
+
+    if ship_location == True:
+        while True:
+            try:
+                position = input("Upright(U) or Sideways(S)?\n")\
+                                  .upper()
+                if position == "S" or position == "U":
+                    break
+                else:
+                    raise ValueError
+            except ValueError:
+                print("Enter valid input either:(U or S)\n")
+        while True:
+            try:
+                row = input("Row - between 1-7:\n")
+                if row in "1234567":
+                    row = int(row) - 1
+                    break
+                else:
+                    raise ValueError
+            except ValueError:
+                print("Enter valid input between 1-7:\n")
+        while True:
+            try:
+                column = input("Column - between 1-7:\n").upper()
+                if column not in "1234567":
+                    print("Enter valid input between 1-7:\n")
+                else:
+                    column = int(column) - 1
+                    break
+            except KeyError:
+                print("Enter valid input between 1-7:\n")
+        return row, column, position
+    else:
+        while True:
+            try:
+                row = input("Row - between 1-7:\n")
+                if row in "1234567":
+                    row = int(row) - 1
+                    break
+                else:
+                    raise ValueError
+            except ValueError:
+                print("Enter valid input between 1-7:\n")
+        while True:
+            try:
+                column = input("Column - between 1-7:\n").upper()
+                if column not in "1234567":
+                    print("Enter valid input between 1-7:\n")
+                else:
+                    column = int(column) - 1
+                    break
+            except KeyError:
+                print("Enter valid input between 1-7:\n")
+        return row, column
