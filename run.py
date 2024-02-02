@@ -156,7 +156,6 @@ def player1_coordinates(ship_location):
 # Code for checking if there is any overlap with existing placements by
 # looking for the "@" symbol we used to represent our vessels
 
-
 def overlap_monitor(board, row, column, position, ship_size):
     if position == "S":
         for i in range(column, column + ship_size):
@@ -167,3 +166,20 @@ def overlap_monitor(board, row, column, position, ship_size):
             if board[column][i] == "@":
                 return True
     return False
+
+# Code for checking position of the vessel
+# if its within the area of the board and if
+# it comes back as false an error message is generated
+
+def check_position(SHIP_SIZE, row, column, position):
+    
+    if position == "S":
+        if column + SHIP_SIZE > 7:
+            return False
+        else:
+            return True
+    else:
+        if row + SHIP_SIZE > 7:
+            return False
+        else:
+            return True
