@@ -225,3 +225,13 @@ def succesful_hits(board):
             if column == "X":
                 count += 1
     return count
+
+# Code for playing the game 
+
+def play_game():
+    start_up_game = input("If you're ready type GO and hit Enter.\n").upper()
+    while start_up_game != 'GO':
+        start_up_game = input("Type GO to begin...\n").upper()
+    ship_location(COMPUTER_BOARD)
+    display_board(PLAYER1_BOARD)
+    ship_location(PLAYER1_BOARD)
