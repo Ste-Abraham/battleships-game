@@ -217,7 +217,7 @@ def player1_computer_turns(board):
         elif board[row][column] == "X":
             player1_computer_turns(board)
         elif PLAYER1_BOARD[row][column] == "@":
-            board[row][column]
+            board[row][column] = "X"
             print("We have been hit!\n")
         else:
             board[row][column] = "-"
