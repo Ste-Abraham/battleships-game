@@ -8,10 +8,13 @@ PLAYER1_CHOICE = [[" "] * 7 for i in range(7)]
 COMPUTER_CHOICE = [[" "] * 7 for i in range(7)]
 
 # Size of each vessel in gameboard area
-VESSEL_SIZE = [1, 1, 2, 2, 3,]
+VESSEL_SIZE = [1, 1, 2, 2, 3, ]
 
 # Welcome screen message - battleship art from ansi art website
+
+
 def welcome_message():
+    
     print("""
 
     ____        __  __  __          __    _           
@@ -39,6 +42,7 @@ def welcome_message():
     print("Be the first player to sink all of the opponents ships")
     print("\n")
 
+
 # Code used to create gameboard
 def display_board(board):
     print("===== BATTLESHIP Board =====")
@@ -54,6 +58,7 @@ def display_board(board):
 # Code for placing ships - a function that will loop through the different
 # available vessels and check for any issues with overlaps
 
+
 def ship_location(board):
     for ship_size in VESSEL_SIZE:
         while True:
@@ -62,7 +67,7 @@ def ship_location(board):
                     random.randint(0, 6), random.randint(0, 6)
                 if check_position(ship_size, row, column, position):
                     if not overlap_monitor(board, row, column, position,
-                                         ship_size):
+                                           ship_size):
                         if position == "S":
                             for i in range(column, column + ship_size):
                                 board[row][i] = "@"
@@ -73,11 +78,11 @@ def ship_location(board):
             else:
                 ship_location = True
                 print("Place vessel that is alloted to this many space(s):"
-                + str(ship_size))
+                      + str(ship_size))
                 row, column, position = player1_coordinates(ship_location)
                 if check_position(ship_size, row, column, position):
                     if overlap_monitor(board, row, column, position,
-                                     ship_size):
+                                       ship_size):
                         print("\n")
                         print("Vessel can not be placed here. Try again!\n")
                     else:
@@ -93,12 +98,13 @@ def ship_location(board):
                         break
                         print("\n")
 
-# Code for inserting coordinates for both 
+# Code for inserting coordinates for both
 # attacking computers vessels and placing your own
+
 
 def player1_coordinates(ship_location):
 
-    if ship_location == True:
+    if ship_location is True:
         while True:
             try:
                 position = input("Upright(U) or Sideways(S)?\n")\
@@ -156,6 +162,7 @@ def player1_coordinates(ship_location):
 # Code for checking if there is any overlap with existing placements by
 # looking for the "@" symbol we used to represent our vessels
 
+
 def overlap_monitor(board, row, column, position, ship_size):
     if position == "S":
         for i in range(column, column + ship_size):
@@ -171,8 +178,8 @@ def overlap_monitor(board, row, column, position, ship_size):
 # if its within the area of the board and if
 # it comes back as false an error message is generated
 
+
 def check_position(SHIP_SIZE, row, column, position):
-    
     if position == "S":
         if column + SHIP_SIZE > 7:
             return False
@@ -187,6 +194,7 @@ def check_position(SHIP_SIZE, row, column, position):
 # Code for going between computer and player1 turns.
 # Shows when a vessel has been hit or not
 # and uses randint to make computers guess random
+
 
 def player1_computer_turns(board):
 
@@ -217,8 +225,9 @@ def player1_computer_turns(board):
 
 # Code for keeping count of hits
 
+
 def succesful_hits(board):
-    
+
     count = 0
     for row in board:
         for column in row:
@@ -226,7 +235,8 @@ def succesful_hits(board):
                 count += 1
     return count
 
-# Code for playing the game 
+# Code for playing the game
+
 
 def play_game():
     start_up_game = input("If you're ready type GO and hit Enter.\n").upper()
@@ -252,6 +262,7 @@ def play_game():
         if succesful_hits(COMPUTER_CHOICE) == 9:
             print("You lose. Unlucky. Press run program to play again.\n")
             break
+
 
 welcome_message()
 play_game()
