@@ -152,3 +152,18 @@ def player1_coordinates(ship_location):
             except KeyError:
                 print("Enter valid input between 1-7:\n")
         return row, column
+
+# Code for checking if there is any overlap with existing placements by
+# looking for the "@" symbol we used to represent our vessels
+
+
+def overlap_monitor(board, row, column, position, ship_size):
+    if position == "S":
+        for i in range(column, column + ship_size):
+            if board[row][i] == "@":
+                return True
+    else:
+        for i in range(row, row + ship_size):
+            if board[column][i] == "@":
+                return True
+    return False
