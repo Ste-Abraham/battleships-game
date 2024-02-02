@@ -20,9 +20,9 @@ def welcome_message():
     ____        __  __  __          __    _           
    / __ )____ _/ /_/ /_/ /__  _____/ /_  (_)___  _____
   / __  / __ `/ __/ __/ / _ \/ ___/ __ \/ / __ \/ ___/
- / /_/ / /_/ / /_/ /_/ /  __(__  ) / / / / /_/ (__  ) 
-/_____/\__,_/\__/\__/_/\___/____/_/ /_/_/ .___/____/  
-                                       /_/            
+ / /_/ / /_/ / /_/ /_/ /  __(__  ) / / / / /_/ (__  )
+/_____/\__,_/\__/\__/_/\___/____/_/ /_/_/ .___/____/
+                                       /_/
 
                 """)
 
@@ -205,7 +205,7 @@ def player1_computer_turns(board):
         elif board[row][column] == "X":
             player1_computer_turns(board)
         elif COMPUTER_BOARD[row][column] == "@":
-            board[row][column]
+            board[row][column] = "X"
             print("Hit!\n")
         else:
             board[row][column] = "-"
@@ -264,5 +264,6 @@ def play_game():
             break
 
 
-welcome_message()
-play_game()
+if __name__ == "__main__":
+    welcome_message()
+    play_game()
