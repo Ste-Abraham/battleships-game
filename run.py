@@ -118,7 +118,7 @@ def player1_coordinates(ship_location):
         while True:
             try:
                 row = input("Row - between 1-7:\n")
-                if row in "1234567":
+                if row in "1, 2, 3, 4, 5, 6, 7 ":
                     row = int(row) - 1
                     break
                 else:
@@ -128,7 +128,7 @@ def player1_coordinates(ship_location):
         while True:
             try:
                 column = input("Column - between 1-7:\n").upper()
-                if column not in "1234567":
+                if column not in "1, 2, 3, 4, 5, 6, 7":
                     print("Enter valid input between 1-7:\n")
                 else:
                     column = int(column) - 1
@@ -140,7 +140,7 @@ def player1_coordinates(ship_location):
         while True:
             try:
                 row = input("Row - between 1-7:\n")
-                if row in "1234567":
+                if row in "1, 2, 3, 4, 5, 6, 7":
                     row = int(row) - 1
                     break
                 else:
@@ -150,7 +150,7 @@ def player1_coordinates(ship_location):
         while True:
             try:
                 column = input("Column - between 1-7:\n").upper()
-                if column not in "1234567":
+                if column not in "1, 2, 3, 4, 5, 6, 7":
                     print("Enter valid input between 1-7:\n")
                 else:
                     column = int(column) - 1
