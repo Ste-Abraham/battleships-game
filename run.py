@@ -15,6 +15,11 @@ VESSEL_SIZE = [1, 1, 2, 2, 3, ]
 
 def welcome_message():
 
+    """
+    This displays main home screen when first loading up the game
+    and starting again
+    """
+
     print("""
 
     ____        __  __  __          __    _           
@@ -45,6 +50,10 @@ def welcome_message():
 
 # Code used to create gameboard
 def display_board(board):
+    """
+    This displays the battlefield for players before anything has been placed.
+    Ready for players and computers to add their vessels.
+    """
     print("===== BATTLESHIP Board =====")
     print("\n")
     print("  1 2 3 4 5 6 7")
@@ -60,6 +69,10 @@ def display_board(board):
 
 
 def ship_location(board):
+    """
+    This will allow you to place your vessels and check
+    for any issues with overlaps.
+    """
     for ship_size in VESSEL_SIZE:
         while True:
             if board == COMPUTER_BOARD:
@@ -103,6 +116,10 @@ def ship_location(board):
 
 
 def player1_coordinates(ship_location):
+    """
+    This will allow you to insert your location vessels
+    for both attacking and placing.
+    """
 
     if ship_location is True:
         while True:
@@ -164,6 +181,10 @@ def player1_coordinates(ship_location):
 
 
 def overlap_monitor(board, row, column, position, ship_size):
+    """
+    Checks new placements with older ones to see if there is any issue 
+    with overlapping.
+    """
     if position == "S":
         for i in range(column, column + ship_size):
             if board[row][i] == "@":
@@ -180,6 +201,10 @@ def overlap_monitor(board, row, column, position, ship_size):
 
 
 def check_position(SHIP_SIZE, row, column, position):
+    """
+    Will see if you are trying to play within the gamearea.
+    If you are out it will result in an error message.
+    """
     if position == "S":
         if column + SHIP_SIZE > 7:
             return False
@@ -197,6 +222,11 @@ def check_position(SHIP_SIZE, row, column, position):
 
 
 def player1_computer_turns(board):
+    """
+    Uses randit to make computers guess random. Indicates
+    when both computer and player hit or miss. Goes between
+    computer and players turn.
+    """
 
     if board == PLAYER1_CHOICE:
         row, column = player1_coordinates(PLAYER1_CHOICE)
@@ -227,6 +257,9 @@ def player1_computer_turns(board):
 
 
 def succesful_hits(board):
+    """
+    Counts hits that are succesful which will eventually end the game.
+    """
 
     count = 0
     for row in board:
@@ -239,6 +272,9 @@ def succesful_hits(board):
 
 
 def play_game():
+    """
+    Makes the game run by executing all your functions.
+    """
     start_up_game = input("If you're ready type GO and hit Enter.\n").upper()
     while start_up_game != 'GO':
         start_up_game = input("Type GO to begin...\n").upper()
