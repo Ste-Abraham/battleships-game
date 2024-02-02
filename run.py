@@ -235,3 +235,23 @@ def play_game():
     ship_location(COMPUTER_BOARD)
     display_board(PLAYER1_BOARD)
     ship_location(PLAYER1_BOARD)
+
+    while True:
+        while True:
+            print("Your go! Take aim and fire!\n")
+            display_board(PLAYER1_CHOICE)
+            player1_computer_turns(PLAYER1_CHOICE)
+            break
+        if succesful_hits(PLAYER1_CHOICE) == 9:
+            print("You win. Congrats. Press run program to play again.\n")
+            break
+        while True:
+            player1_computer_turns(COMPUTER_CHOICE)
+            break
+        display_board(COMPUTER_CHOICE)
+        if succesful_hits(COMPUTER_CHOICE) == 9:
+            print("You lose. Unlucky. Press run program to play again.\n")
+            break
+
+welcome_message()
+play_game()
