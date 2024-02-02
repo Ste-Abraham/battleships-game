@@ -182,7 +182,7 @@ def player1_coordinates(ship_location):
 
 def overlap_monitor(board, row, column, position, ship_size):
     """
-    Checks new placements with older ones to see if there is any issue 
+    Checks new placements with older ones to see if there is any issue
     with overlapping.
     """
     if position == "S":
