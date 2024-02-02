@@ -38,3 +38,16 @@ def welcome_message():
     print("\n")
     print("Be the first player to sink all of the opponents ships")
     print("\n")
+
+# Code used to create gameboard
+def display_board(board):
+    print("===== BATTLESHIP Board =====")
+    print("\n")
+    print("  1 2 3 4 5 6 7")
+    print("  -------------")
+    row_number = 1
+    for row in board:
+        print("%d|%s|" % (row_number, "|".join(row)))
+        row_number += 1
+    print("\n")
+    
