@@ -92,8 +92,10 @@ One of the other errors reported was that a number could be inputted out of the 
 
 The assignment asks you to run the code through pep8 Python Linter to check for any significant issues. When I first entered the code, it came up with many errors. These were then corrected and formatted to remove the errors as shown in the below screen shots. The remaining errors showing are in the ASCII art that reads battleships. These are not significant issues and they do not affect the running of the app. This is the site used to check the code. https://pep8ci.herokuapp.com/
 
+Before ERRORS showing up to line 257
 ![Screenshot of end of game](/assets/images/ci-linter-before.png)
 
+After alot of ERRORS removed now only showing up to line 24 - which is just the ASCII art
 ![Screenshot of end of game](/assets/images/ci-linther-after.png)
 
 ## Unfixed Bugs
